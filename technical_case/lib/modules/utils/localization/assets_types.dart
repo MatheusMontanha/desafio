@@ -1,0 +1,4 @@
+enum AssetChosen {
+  toroLogo,
+  toroLogoWithName,
+}
