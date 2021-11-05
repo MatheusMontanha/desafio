@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 @immutable
@@ -9,6 +10,15 @@ abstract class OnboardingState extends Equatable {
 class InitialOnboardingState extends OnboardingState {
   @override
   List<Object?> get props => [];
+}
+
+class OnboardingLoadedWidgetsState extends OnboardingState {
+  final List<Widget> widgets;
+  const OnboardingLoadedWidgetsState({required this.widgets});
+  @override
+  List<Object?> get props => [widgets];
+  // ignore: annotate_overrides
+  bool operator ==(Object other) => false;
 }
 
 class OnboardingLoadingChangeStepState extends OnboardingState {

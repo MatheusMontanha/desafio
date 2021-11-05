@@ -6,6 +6,13 @@ abstract class OnboardingEvent extends Equatable {
   const OnboardingEvent();
 }
 
+class OnboardingInitialEvent extends OnboardingEvent {
+  const OnboardingInitialEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
 class OnboardingChangeStep extends OnboardingEvent {
   final int index;
   const OnboardingChangeStep({required this.index});

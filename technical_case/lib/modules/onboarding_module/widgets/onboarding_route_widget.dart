@@ -12,7 +12,7 @@ class OnboardingRouteWidget extends StatelessWidget {
     return BlocProvider(
       create: (context) => OnboardingBloc(
         InitialOnboardingState(),
-      ),
+      )..add(const OnboardingInitialEvent()),
       child: const OnboardingPageWidget(),
     );
   }

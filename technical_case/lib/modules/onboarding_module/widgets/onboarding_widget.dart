@@ -19,43 +19,16 @@ class OnboardingPageWidget extends StatefulWidget {
 }
 
 class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
-  final List<Widget> steps = [
-    OnboardingStepWidget(
-      title: LocalizationStrings().getOnboardingStepOneStrings().helloTitlePage,
-      subtitle:
-          LocalizationStrings().getOnboardingStepOneStrings().subtitlePage,
-      pathAsset: LocalizationAssetsSdk().getAsset(AssetChosen.toroIntroStepOne),
-    ),
-    OnboardingStepTwoWidget(
-      title: LocalizationStrings().getOnboardingStepTwoStrings().titlePage,
-      subtitle:
-          LocalizationStrings().getOnboardingStepTwoStrings().subtitlePage,
-      pathAsset: LocalizationAssetsSdk().getAsset(AssetChosen.toroIntroStepTwo),
-    ),
-    OnboardingStepTwoWidget(
-      title: LocalizationStrings().getOnboardingStepThreeStrings().titlePage,
-      subtitle:
-          LocalizationStrings().getOnboardingStepThreeStrings().subtitlePage,
-      pathAsset:
-          LocalizationAssetsSdk().getAsset(AssetChosen.toroIntroStepThree),
-    ),
-    OnboardingLastStepWidget(
-      title: LocalizationStrings().getOnboardingStepFourStrings().titlePage,
-      topics: [
-        LocalizationStrings().getOnboardingStepFourStrings().subtitlePageOne,
-        LocalizationStrings().getOnboardingStepFourStrings().subtitlePageTwo,
-        LocalizationStrings().getOnboardingStepFourStrings().subtitlePageThree,
-      ],
-      pathAsset:
-          LocalizationAssetsSdk().getAsset(AssetChosen.toroIntroStepFour),
-    ),
-  ];
+  List<Widget> steps = [];
   int activeIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(body: BlocBuilder<OnboardingBloc, OnboardingState>(
         builder: (context, state) {
+          if (state is OnboardingLoadedWidgetsState) {
+            steps = state.widgets;
+          }
           if (state is OnboardingChangeIndexStepState) {
             activeIndex = state.newIndex;
           }
