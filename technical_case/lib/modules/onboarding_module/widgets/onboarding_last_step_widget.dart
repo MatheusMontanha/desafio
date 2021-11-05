@@ -38,6 +38,7 @@ class OnboardingLastStepWidget extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontSize: 20,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),

@@ -15,7 +15,10 @@ class LoginTextField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label),
+          Text(
+            label,
+            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+          ),
           TextFormField(
             cursorHeight: 25,
             decoration: const InputDecoration(

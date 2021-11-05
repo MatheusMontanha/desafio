@@ -34,6 +34,7 @@ class OnboardingStepTwoWidget extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontSize: 24,
+                    fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.center,
                 ),

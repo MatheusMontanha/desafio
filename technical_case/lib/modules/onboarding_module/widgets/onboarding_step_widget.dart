@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,6 +31,7 @@ class OnboardingStepWidget extends StatelessWidget {
                 title,
                 style: const TextStyle(
                   fontSize: 24,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               Padding(
@@ -38,6 +40,7 @@ class OnboardingStepWidget extends StatelessWidget {
                   subtitle!,
                   style: const TextStyle(
                     fontSize: 24,
+                    fontWeight: FontWeight.w500,
                   ),
                   textAlign: TextAlign.center,
                 ),
