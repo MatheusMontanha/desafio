@@ -1,15 +1,17 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:technical_case/modules/onboarding_module/onboarding_repository/onboarding_repository.dart';
 import 'package:technical_case/modules/onboarding_module/widgets/onboarding.dart';
 import 'package:technical_case/modules/utils/localization/localization.dart';
 
 import 'bloc.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
+  
   OnboardingBloc(OnboardingState initialState) : super(initialState);
 
   OnboardingState get initialState => InitialOnboardingState();
-
+final OnboardingRepository repository = OnboardingRepository();
   @override
   Stream<OnboardingState> mapEventToState(OnboardingEvent event) async* {
     if (event is OnboardingInitialEvent) {
