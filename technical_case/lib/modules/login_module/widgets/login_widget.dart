@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:technical_case/modules/login_module/widgets/login_text_field.dart';
 import 'package:technical_case/modules/utils/localization/assets_types.dart';
 import 'package:technical_case/modules/utils/localization/localization.dart';
+import 'package:technical_case/modules/widgets/asset_widget.dart';
 import 'package:technical_case/modules/widgets/widgets.dart';
 
 class LoginPageWidget extends StatefulWidget {
@@ -18,12 +19,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        key: const Key("login_widget_page_key"),
         body: Padding(
           padding: const EdgeInsets.all(30),
           child: SingleChildScrollView(
             child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.7,
               child: Column(
+                key: const Key("login_widget_items_key"),
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 mainAxisSize: MainAxisSize.max,
@@ -67,6 +70,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
           ),
         ),
         bottomNavigationBar: Container(
+          key: const Key("login_widget_bottom_navigation_key"),
           height: MediaQuery.of(context).size.height * 0.13,
           color: Colors.blueGrey[900],
           child: DefaultButton(

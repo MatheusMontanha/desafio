@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:technical_case/modules/router/routes.dart';
 import 'package:technical_case/modules/utils/localization/assets_types.dart';
 
-import 'asset_widget.dart';
+import 'asset_timer_widget.dart';
 
 class SplashScreenWidget extends StatefulWidget {
   const SplashScreenWidget({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
       child: Scaffold(
         body: Container(
           alignment: Alignment.center,
-          child: const AssetWidget(
+          child: const AssetTimerWidget(
             maxHeight: 100,
             assetChosen: AssetChosen.toroLogo,
           ),

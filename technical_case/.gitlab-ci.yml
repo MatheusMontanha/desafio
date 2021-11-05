@@ -1,0 +1,57 @@
+image: cirrusci/flutter:1.22.4
+
+variables:
+  S3: "URL"
+  SONAR: "sonar-scanner-4.5.0.2216-linux.tar.gz"
+  DEBIAN_FRONTEND: "noninteractive"
+
+cache:
+  key: ${CI_PROJECT_NAME}
+  paths:
+    - $PUB_CACHE
+
+stages:
+  - build
+  - analyze
+  - test
+  - bundle
+
+before_script:
+  - flutter pub get
+  - flutter clean
+
+bundle:
+  stage: bundle
+  script:
+    - BUILD_NAME=$(echo $CI_BUILD_REF_NAME | sed "s/release\/v//g")
+    - if [[ ! $BUILD_NAME =~ ^[0-9]+.[0-9]+.[0-9]+$ ]]; then echo "Incorrect build name!"; exit 1; fi
+    - flutter build appbundle --build-name=$BUILD_NAME --build-number=${CI_PIPELINE_IID}
+  only:
+    - /^release/.*$/
+  artifacts:
+    paths:
+      - build/app/outputs/bundle/release/
+
+build:
+  stage: build
+  script:
+    - flutter build aot
+  only:
+    - /^release/.*$/
+    - merge_requests
+
+analyze:
+  stage: analyze
+  script:
+    - flutter analyze
+  only:
+    - /^release/.*$/
+    - merge_requests
+
+unit_test:
+  stage: test
+  script:
+    - flutter test test/*
+  only:
+    - /^release/.*$/
+    - merge_requests

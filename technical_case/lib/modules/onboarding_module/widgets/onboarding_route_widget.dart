@@ -4,15 +4,22 @@ import 'package:technical_case/modules/onboarding_module/onboarding_blocs/bloc.d
 
 import 'onboarding_widget.dart';
 
-class OnboardingRouteWidget extends StatelessWidget {
+OnboardingBloc _onboardingBloc = OnboardingBloc(
+  InitialOnboardingState(),
+);
+
+class OnboardingRouteWidget extends StatefulWidget {
   const OnboardingRouteWidget({Key? key}) : super(key: key);
 
   @override
+  State<OnboardingRouteWidget> createState() => _OnboardingRouteWidgetState();
+}
+
+class _OnboardingRouteWidgetState extends State<OnboardingRouteWidget> {
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => OnboardingBloc(
-        InitialOnboardingState(),
-      )..add(const OnboardingInitialEvent()),
+      create: (context) => _onboardingBloc..add(const OnboardingInitialEvent()),
       child: const OnboardingPageWidget(),
     );
   }

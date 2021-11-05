@@ -65,7 +65,10 @@ class OnboardingLastStepWidget extends StatelessWidget {
         Flexible(
           child: Text(
             text,
-            style: const TextStyle(fontSize: 16, color: Colors.grey),
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
           ),
         ),
       ],

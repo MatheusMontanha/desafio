@@ -36,6 +36,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   CarouselSlider(
+                    key: const Key("onboarding_widget_steps_key"),
                     items: [...steps],
                     options: CarouselOptions(
                       enlargeCenterPage: true,

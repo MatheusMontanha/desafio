@@ -5,6 +5,9 @@ import 'package:meta/meta.dart';
 @immutable
 abstract class OnboardingState extends Equatable {
   const OnboardingState();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class InitialOnboardingState extends OnboardingState {
