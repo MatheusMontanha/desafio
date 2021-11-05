@@ -41,7 +41,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                     options: CarouselOptions(
                       enlargeCenterPage: true,
                       enableInfiniteScroll: false,
-                      height: MediaQuery.of(context).size.height * 0.6,
+                      height: MediaQuery.of(context).size.height * 0.65,
                       onPageChanged: (index, reason) {
                         BlocProvider.of<OnboardingBloc>(context)
                             .add(OnboardingChangeStep(index: index));
