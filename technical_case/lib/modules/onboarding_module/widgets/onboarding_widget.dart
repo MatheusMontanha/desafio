@@ -4,12 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:technical_case/modules/onboarding_module/onboarding_blocs/bloc.dart';
-import 'package:technical_case/modules/onboarding_module/widgets/onboarding_step_two_widget.dart';
-import 'package:technical_case/modules/utils/localization/localization.dart';
 
 import 'onboarding_buttons_widget.dart';
-import 'onboarding_last_step_widget.dart';
-import 'onboarding_step_widget.dart';
 
 class OnboardingPageWidget extends StatefulWidget {
   const OnboardingPageWidget({Key? key}) : super(key: key);
