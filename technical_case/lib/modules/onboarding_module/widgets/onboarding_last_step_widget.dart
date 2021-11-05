@@ -43,7 +43,7 @@ class OnboardingLastStepWidget extends StatelessWidget {
               ),
               getRowWithText(topics[0]),
               getRowWithText(topics[1]),
-              getRowWithText(topics[1]),
+              getRowWithText(topics[2]),
             ],
           ),
         ),
@@ -61,10 +61,10 @@ class OnboardingLastStepWidget extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Text(
-          text,
-          style: const TextStyle(
-            fontSize: 16,
+        Flexible(
+          child: Text(
+            text,
+            style: const TextStyle(fontSize: 16, color: Colors.grey),
           ),
         ),
       ],
