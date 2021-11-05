@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:technical_case/modules/onboarding_module/onboarding_blocs/bloc.dart';
 import 'package:technical_case/modules/onboarding_module/widgets/onboarding_step_two_widget.dart';
 import 'package:technical_case/modules/utils/localization/localization.dart';
 
@@ -49,39 +51,43 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
     ),
   ];
   int activeIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          body: Center(
-        child: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CarouselSlider(
-                items: [...steps],
-                options: CarouselOptions(
-                  enlargeCenterPage: true,
-                  enableInfiniteScroll: false,
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      activeIndex = index;
-                    });
-                  },
-                ),
+      child: Scaffold(body: BlocBuilder<OnboardingBloc, OnboardingState>(
+        builder: (context, state) {
+          if (state is OnboardingChangeIndexStepState) {
+            activeIndex = state.newIndex;
+          }
+          return Center(
+            child: SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CarouselSlider(
+                    items: [...steps],
+                    options: CarouselOptions(
+                      enlargeCenterPage: true,
+                      enableInfiniteScroll: false,
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      onPageChanged: (index, reason) {
+                        BlocProvider.of<OnboardingBloc>(context)
+                            .add(OnboardingChangeStep(index: index));
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 25),
+                    child: buildIndicator(),
+                  ),
+                  const OnboardingButtonsWidget(),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 25),
-                child: buildIndicator(),
-              ),
-              const OnboardingButtonsWidget(),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       )),
     );
   }

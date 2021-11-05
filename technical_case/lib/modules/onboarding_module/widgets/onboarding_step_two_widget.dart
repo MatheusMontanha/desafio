@@ -29,7 +29,7 @@ class OnboardingStepTwoWidget extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.28,
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 20, top: 20),
+                padding: const EdgeInsets.only(bottom: 15, top: 20),
                 child: Text(
                   title,
                   style: const TextStyle(
