@@ -78,7 +78,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                 padding: const EdgeInsets.symmetric(vertical: 25),
                 child: buildIndicator(),
               ),
-              OnboardingButtonsWidget(),
+              const OnboardingButtonsWidget(),
             ],
           ),
         ),

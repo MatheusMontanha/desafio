@@ -10,4 +10,5 @@ class LoginStrings {
   String get titleThirdPartLoginPage => "na Bolsa.";
   String get titleTextFormFieldEmail => "E-mail ou CPF:";
   String get titleTextFormFieldPassword => "Senha:";
+  String get singInTextButton => "ENTRAR";
 }

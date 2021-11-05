@@ -66,10 +66,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             ),
           ),
         ),
-        bottomNavigationBar: const DefaultButton(
-          color: Colors.blue,
-          label: "Entrar",
-          labelColor: Colors.white,
+        bottomNavigationBar: Container(
+          height: MediaQuery.of(context).size.height * 0.13,
+          color: Colors.blueGrey[900],
+          child: DefaultButton(
+            color: Colors.blue,
+            label: loginTexts.singInTextButton,
+            labelColor: Colors.white,
+            isPageLogin: true,
+          ),
         ),
       ),
     );
