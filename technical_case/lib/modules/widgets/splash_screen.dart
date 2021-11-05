@@ -19,7 +19,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
     Future.delayed(
       const Duration(seconds: 4),
       () async {
-        await Navigator.pushNamed(context, loginScreenRoute);
+        await Navigator.pushNamed(context, onboardingRoute);
       },
     );
   }

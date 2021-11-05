@@ -66,26 +66,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             ),
           ),
         ),
-        bottomNavigationBar: Container(
-          color: Colors.blueGrey[900],
-          height: MediaQuery.of(context).size.height * 0.15,
-          width: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-            child: Column(
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: const Text("Entrar"),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+        bottomNavigationBar: const DefaultButton(
+          color: Colors.blue,
+          label: "Entrar",
+          labelColor: Colors.white,
         ),
       ),
     );
